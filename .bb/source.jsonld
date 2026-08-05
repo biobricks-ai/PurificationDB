@@ -1,0 +1,45 @@
+{
+  "@context": "../../context/source.context.jsonld",
+  "@type": "dcat:Dataset",
+  "@id": "https://biobricks.ai/bricks/PurificationDB",
+  "dcterms:title": "PurificationDB: database of purification conditions for proteins",
+  "dcterms:description": "PurificationDB is an open-access knowledge base of 4732 curated and standardized entries of protein purification conditions (buffers, additives, and conditions) extracted from the literature using named-entity recognition, cross-referenced to the Protein Data Bank and UniProt. It was published by Garland, Radaeva, Pandey, Cherkasov, and Lallous in Database: The Journal of Biological Databases and Curation (Oxford University Press, 2023; DOI 10.1093/database/baad016) and served from the deployed app at purificationdatabase.herokuapp.com. This brick materializes those purification-condition entries as parquet.",
+  "dcterms:license": "https://creativecommons.org/licenses/by/4.0/",
+  "biobricks:licenseName": "CC BY 4.0",
+  "biobricks:licenseClass": "attribution",
+  "biobricks:merckCommercialUse": "permitted",
+  "biobricks:licenseEvidence": [
+    {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069378/",
+      "quote": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+      "confidence": "high"
+    },
+    {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069378/",
+      "quote": "All database entries are freely available through our deployed app at https://purificationdatabase.herokuapp.com/",
+      "confidence": "high"
+    },
+    {
+      "source": "README.md",
+      "quote": "Protein purification is a critical step for structural studies, proteomics, and drug discovery. To perform a successful purification, one must carefully choose the conditions that preserve protein structure and function.",
+      "confidence": "medium"
+    }
+  ],
+  "biobricks:reviewed": false,
+  "biobricks:reviewNotes": "Determined by annotation agent. The repository itself is thin: README.md only describes protein purification generically, dvc.yaml runs a generic download/unzip/build pipeline, and stages/01_download.sh has an EMPTY source URL (export ftpbase=\"\"), so the upstream is not named in-repo and had to be identified externally. The GitHub remote (biobricks-ai/PurificationDB) and the resource name resolve to PurificationDB, published in Database (Oxford University Press) at DOI 10.1093/database/baad016 (PMC10069378), served at purificationdatabase.herokuapp.com. The publishing article is licensed CC BY 4.0 (unrestricted reuse with attribution), and the data availability statement says all database entries are freely available. CC BY permits commercial use and redistribution with attribution, so licenseClass=attribution and merckCommercialUse=permitted (matching the ontology's CC BY reference example). REVIEWER MUST CHECK: (1) the CC BY 4.0 statement is the article's license; the deployed Heroku app carries no standalone license file, so confirm the underlying entries are intended to inherit the article's CC BY terms rather than merely being 'freely available'; (2) confirm the brick actually ingests PurificationDB data and not some other FTP source, since ftpbase is empty in the committed download script; (3) preserve attribution to Garland, Radaeva, Pandey, Cherkasov, and Lallous on redistribution.",
+  "dcterms:creator": "Olivia Garland, Mariia Radaeva, Mohit Pandey, Artem Cherkasov, Nada Lallous",
+  "dcterms:publisher": "Oxford University Press (Database: The Journal of Biological Databases and Curation)",
+  "dcterms:bibliographicCitation": "Garland O., Radaeva M., Pandey M., Cherkasov A., Lallous N. PurificationDB: database of purification conditions for proteins. Database, 2023, baad016. https://doi.org/10.1093/database/baad016",
+  "dcterms:identifier": "10.1093/database/baad016",
+  "prov:wasDerivedFrom": [
+    {
+      "@type": "dcat:Dataset",
+      "@id": "https://doi.org/10.1093/database/baad016",
+      "dcterms:title": "PurificationDB: database of purification conditions for proteins",
+      "dcterms:license": "https://creativecommons.org/licenses/by/4.0/",
+      "dcat:downloadURL": "https://purificationdatabase.herokuapp.com/",
+      "dcat:landingPage": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069378/",
+      "dcterms:publisher": "Oxford University Press"
+    }
+  ]
+}
